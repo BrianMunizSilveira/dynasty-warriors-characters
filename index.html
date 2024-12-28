@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Selection - Three Kingdoms Enhanced</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Three Kingdoms</h1>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search characters...">
+        </div>
+        <div class="controls">
+          <button class="action-btn" data-tooltip="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="action-btn" data-tooltip="Favorites">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="kingdom-menu">
+      <button class="kingdom-btn active" data-kingdom="wei" style="color: var(--primary-color)">Wei</button>
+      <button class="kingdom-btn" data-kingdom="shu" style="color: var(--secondary-color)">Shu</button>
+      <button class="kingdom-btn" data-kingdom="wu" style="color: var(--accent-color)">Wu</button>
+      <button class="kingdom-btn" data-kingdom="other">Other</button>
+    </nav>
+
+    <main class="characters-grid" id="charactersGrid">
+      <!-- Cards serão inseridos via JavaScript -->
+    </main>
+  </div>
+  <script src="./src/js/main.js"></script>
+</body>
+</html>
