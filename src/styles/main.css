@@ -166,8 +166,6 @@
 
   .character-image {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
   }
 
   .character-info {
@@ -281,6 +279,25 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       padding: 1rem;
       gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    h1 {
+      margin: 2rem 0 1rem;
+      font-size: 2rem;
+    }
+
+    .characters-grid {
+      grid-template-columns: auto;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    
+    .action-btn {
+      display: inline-block;
+      margin-left: 10px;
     }
   }
 
