@@ -141,19 +141,79 @@ const characters = {
             name: 'Sun Jian',
             role: 'Founder of Wu',
             weapon: 'Nine Rings Sword',
-            image: ''
+            image: 'https://kongming.net/dw6/i/artwork/sunjian-600.jpg'
         },
         {
             name: 'Sun Ce',
             role: 'Leader of Wu',
             weapon: 'Tonfa',
-            image: ''
+            image: 'https://kongming.net/dw6/i/artwork/sunce-600.jpg'
         },
         {
             name: 'Sun Quan',
             role: 'Emperor of Wu',
             weapon: 'Flame Sword',
-            image: ''
+            image: 'https://kongming.net/dw6/i/artwork/sunquan-600.jpg'
+        },
+        {
+            name: 'Sun Shangxiang',
+            role: 'Political alliance',
+            weapon: 'Bow',
+            image: 'https://kongming.net/dw6/i/artwork/sunshangxiang-600.jpg'
+        },
+        {
+            name: 'Gan Ning',
+            role: 'Wu General',
+            weapon: 'River Master',
+            image: 'https://kongming.net/dw6/i/artwork/ganning-600.jpg'
+        },
+        {
+            name: 'Xiao Qiao',
+            role: 'Zhou Yu\'s wife',
+            weapon: 'Twin Fans',
+            image: 'https://kongming.net/dw6/i/artwork/xiaoqiao-600.jpg'
+        },
+        {
+            name: 'Zhou Yu',
+            role: 'Commander of Wu',
+            weapon: 'Ancient Sword',
+            image: 'https://kongming.net/dw6/i/artwork/zhouyu-600.jpg'
+        },
+        {
+            name: 'Huang Gai',
+            role: 'Veteran General',
+            weapon: 'Iron Rod',
+            image: 'https://kongming.net/dw6/i/artwork/huanggai-600.jpg'
+        },
+        {
+            name: 'Ling Tong',
+            role: 'Wu Officer',
+            weapon: 'Three Section Staff',
+            image: 'https://kongming.net/dw6/i/artwork/lingtong-600.jpg'
+        },
+        {
+            name: 'Lu Meng',
+            role: 'Strategic Commander',
+            weapon: 'Pike',
+            image: 'https://kongming.net/dw6/i/artwork/lumeng-600.jpg'
+        },
+        {
+            name: 'Lu Xun',
+            role: 'Strategist',
+            weapon: 'Twin Swords',
+            image: 'https://kongming.net/dw6/i/artwork/luxun-600.jpg'
+        },
+        {
+            name: 'Taishi Ci',
+            role: 'Wu General',
+            weapon: 'Twin Rods',
+            image: 'https://kongming.net/dw6/i/artwork/taishici-600.jpg'
+        },
+        {
+            name: 'Zhou Tai',
+            role: 'Sun Quan\'s Bodyguard',
+            weapon: 'Curved Sword',
+            image: 'https://kongming.net/dw6/i/artwork/zhoutai-600.jpg'
         }
     ],
     other: [
@@ -174,6 +234,18 @@ const characters = {
             role: 'Dancer',
             weapon: 'Mace',
             image: 'https://kongming.net/dw6/i/artwork/diaochan-600.jpg'
+        },
+        {
+            name: 'Yuan Shao',
+            role: 'Tyrant',
+            weapon: 'Spear',
+            image: 'https://kongming.net/dw6/i/artwork/yuanshao-600.jpg'
+        },
+        {
+            name: 'Zhang Jiao',
+            role: 'Yellow Turban Leader',
+            weapon: 'Spear',
+            image: 'https://kongming.net/dw6/i/artwork/zhangjiao-600.jpg'
         }
     ]
 };
