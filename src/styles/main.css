@@ -1,20 +1,3 @@
-:root {
-  --primary-color: #4a90e2;
-  --secondary-color: #50c878;
-  --accent-color: #ff6b6b;
-  --background: #0a0a0a;
-  --surface: #1a1a1a;
-  --text: #ffffff;
-}
-
-/* Reset e Estilos Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -35,7 +18,7 @@ body {
 .header {
   background: var(--surface);
   padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.3);
   z-index: 100;
 }
 
@@ -271,55 +254,6 @@ body {
   animation: pulse 0.3s ease;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .search-bar {
-    max-width: 100%;
-    margin: 1rem 0;
-  }
-
-  .characters-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    padding: 1rem;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-
-  h1 {
-    margin: 2rem 0 1rem;
-    font-size: 2rem;
-  }
-
-
-  .header,
-  .kingdom-menu {
-    padding: 0.75rem;
-  }
-
-  .kingdom-btn {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-  }
-
-  .characters-grid {
-    grid-template-columns: auto;
-    padding: 2rem;
-    gap: 2rem;
-  }
-
-  .action-btn {
-    display: inline-block;
-    margin-left: 10px;
-  }
-}
-
 /* Skeleton Loading */
 .skeleton {
   background: linear-gradient(90deg,
@@ -345,4 +279,16 @@ body {
   --background: #f0f0f0;
   --surface: #ffffff;
   --text: #000000;
+
+  background-color: var(--background);
+  color: var(--text);
+
+  .character-card {
+    background: var(--surface);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  }
+
+  .character-role {
+    color: rgba(0, 0, 0, 0.8);
+  }
 }

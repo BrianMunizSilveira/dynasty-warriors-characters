@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-bar {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        margin: 2rem 0 1rem;
+        font-size: 2rem;
+    }
+
+
+    .header,
+    .kingdom-menu {
+        padding: 0.75rem;
+    }
+
+    .kingdom-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .characters-grid {
+        grid-template-columns: auto;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .action-btn {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}

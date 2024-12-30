@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50c878;
+    --accent-color: #ff6b6b;
+    --background: #0a0a0a;
+    --surface: #1a1a1a;
+    --text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
