@@ -119,6 +119,28 @@ body {
   animation: fadeInUp 0.5s forwards;
 }
 
+.detail {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.detail i {
+  margin-right: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilo para ícones de dados históricos */
+.detail .fas.fa-sword,
+.detail .fas.fa-calendar-alt,
+.detail .fas.fa-skull {
+  color: var(--text);
+  opacity: 0.6;
+}
+
 @keyframes fadeInUp {
   to {
     transform: translateY(0);
