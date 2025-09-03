@@ -230,6 +230,380 @@ body {
   transform: scale(1.1);
 }
 
+/* Estilos para quando não há resultados de busca */
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  grid-column: 1 / -1;
+  /* Ocupa toda a largura do grid */
+  color: var(--text-secondary, #666);
+  min-height: 300px;
+}
+
+.no-results i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary, #333);
+}
+
+.no-results small {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Melhoria visual para input de busca quando ativo */
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb, 59, 130, 246), 0.3);
+}
+
+/* Indicador visual quando há busca ativa */
+.search-bar.has-search {
+  position: relative;
+}
+
+.search-bar.has-search::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color, #10b981);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Skeleton loading animation melhorada */
+.character-card.skeleton {
+  background: linear-gradient(90deg,
+      var(--card-bg, #f3f4f6) 25%,
+      var(--skeleton-highlight, #e5e7eb) 50%,
+      var(--card-bg, #f3f4f6) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Layout do Header Atualizado */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Player de Áudio */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-width: 280px;
+}
+
+.audio-player:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.audio-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.audio-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.play-pause-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border-radius: 50%;
+}
+
+.play-pause-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.play-pause-btn.playing i::before {
+  content: '\f04c';
+  /* pause icon */
+}
+
+/* Informações do Áudio */
+.audio-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.audio-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.audio-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.time-display {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* Controle de Volume */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.volume-slider {
+  width: 60px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.volume-control:hover .volume-slider {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.volume-input {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.volume-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.volume-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #3b82f6;
+}
+
+.volume-input::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Estados do volume */
+.volume-btn.muted i::before {
+  content: '\f6a9';
+  /* volume-mute */
+}
+
+.volume-btn.low i::before {
+  content: '\f027';
+  /* volume-down */
+}
+
+.volume-btn.high i::before {
+  content: '\f028';
+  /* volume-up */
+}
+
+/* Animação de loading do áudio */
+.audio-player.loading .play-pause-btn {
+  animation: audioLoading 1s infinite;
+}
+
+@keyframes audioLoading {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .audio-player {
+    min-width: 220px;
+  }
+
+  .audio-title {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .audio-player {
+    min-width: 100%;
+    max-width: 300px;
+  }
+
+  .volume-control {
+    display: none;
+    /* Esconde controle de volume em mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-info {
+    display: none;
+    /* Esconde info do áudio em telas muito pequenas */
+  }
+
+  .audio-player {
+    min-width: auto;
+    justify-content: center;
+  }
+}
+
 /* Tooltips */
 [data-tooltip] {
   position: relative;

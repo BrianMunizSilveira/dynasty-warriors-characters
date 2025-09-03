@@ -20,33 +20,80 @@
   <div class="app-container">
     <header class="header">
       <div class="header-content">
-        <h1>Three Kingdoms</h1>
-        <div class="search-bar">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search characters...">
+        <div class="header-left">
+          <h1>Three Kingdoms</h1>
+          <!-- Player de Áudio -->
+          <div class="audio-player">
+            <button class="audio-btn play-pause-btn" data-tooltip="Play/Pause Theme">
+              <i class="fas fa-play"></i>
+            </button>
+            <div class="audio-info">
+              <span class="audio-title">Tetsujin Drive</span>
+              <div class="audio-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <span class="time-display">0:00 / 0:00</span>
+              </div>
+            </div>
+            <div class="volume-control">
+              <button class="audio-btn volume-btn" data-tooltip="Volume">
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <div class="volume-slider">
+                <input type="range" min="0" max="1" step="0.1" value="0.7" class="volume-input">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="controls">
-          <button class="action-btn" data-tooltip="Toggle Theme">
-            <i class="fas fa-moon"></i>
-          </button>
-          <button class="action-btn" data-tooltip="Favorites">
-            <i class="fas fa-heart"></i>
-          </button>
+        
+        <div class="header-center">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search characters...">
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <div class="controls">
+            <button class="action-btn" data-tooltip="Toggle Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="action-btn" data-tooltip="Favorites">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
     <nav class="kingdom-menu">
-      <button class="kingdom-btn active" data-kingdom="wei" style="color: var(--primary-color)"><img src="./src/images/DW-Wei.webp" title="Kingdom of Wei" alt="Wei Symbol"></button>
-      <button class="kingdom-btn" data-kingdom="shu" style="color: var(--secondary-color)"><img src="./src/images/DW-Shu.webp" title="Kingdom of Shu" alt="Shu Symbol"></button>
-      <button class="kingdom-btn" data-kingdom="wu" style="color: var(--accent-color)"><img src="./src/images/DW-Wu.webp" title="Kingdom of Wu" alt="Wu Symbol"></button>
-      <button class="kingdom-btn" data-kingdom="other"><img src="./src/images/DW-Other.webp" title="Others" alt="Other Symbol"></button>
+      <button class="kingdom-btn active" data-kingdom="wei" style="color: var(--primary-color)">
+        <img src="./src/images/DW-Wei.webp" title="Kingdom of Wei" alt="Wei Symbol">
+      </button>
+      <button class="kingdom-btn" data-kingdom="shu" style="color: var(--secondary-color)">
+        <img src="./src/images/DW-Shu.webp" title="Kingdom of Shu" alt="Shu Symbol">
+      </button>
+      <button class="kingdom-btn" data-kingdom="wu" style="color: var(--accent-color)">
+        <img src="./src/images/DW-Wu.webp" title="Kingdom of Wu" alt="Wu Symbol">
+      </button>
+      <button class="kingdom-btn" data-kingdom="other">
+        <img src="./src/images/DW-Other.webp" title="Others" alt="Other Symbol">
+      </button>
     </nav>
 
     <main class="characters-grid" id="charactersGrid">
       <!-- Cards serão inseridos via JavaScript -->
     </main>
   </div>
+  
+  <!-- Áudio Element (oculto) -->
+  <audio id="themeAudio" preload="metadata" loop>
+    <source src="./src/audio/dw6-theme.mp3" type="audio/mpeg">
+    <source src="./src/audio/dw6-theme.ogg" type="audio/ogg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+  
   <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
