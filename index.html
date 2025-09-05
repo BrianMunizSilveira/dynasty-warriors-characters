@@ -87,6 +87,55 @@
     </main>
   </div>
   
+  <!-- Modal de Informações do Personagem -->
+  <div class="character-modal" id="characterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Informações do Personagem</h2>
+        <button class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-character-info">
+          <div class="modal-character-image-container">
+            <img class="modal-character-image" src="" alt="Character Image">
+          </div>
+          <div class="modal-character-details">
+            <h3 class="modal-character-name"></h3>
+            <p class="modal-character-role"></p>
+            <div class="modal-character-stats">
+              <div class="stat">
+                <i class="fas fa-sword"></i>
+                <span>Weapon: </span>
+                <span class="modal-character-weapon"></span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Born: </span>
+                <span class="modal-character-birth"></span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-skull"></i>
+                <span>Died: </span>
+                <span class="modal-character-death"></span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-flag"></i>
+                <span>Kingdom: </span>
+                <span class="modal-character-kingdom"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-character-bio">
+          <h4>Biography</h4>
+          <p class="modal-character-biography">Informações biográficas do personagem serão exibidas aqui.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Áudio Element (oculto) -->
   <audio id="themeAudio" preload="metadata" loop>
     <source src="./src/audio/dw6-theme.mp3" type="audio/mpeg">

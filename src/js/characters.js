@@ -6,7 +6,8 @@ export const characters = {
             weapon: 'Chaos Sword',
             birthYear: 155,
             deathYear: 220,
-            image: './src/images/characters/caocao.webp'
+            image: './src/images/characters/caocao.webp',
+            biography: 'Local de Nascimento: Condado de Qiao, Condado de Pei (Atualmente cidade de Bo Zhou, Província de An Hui)\nPeríodo de Vida: 155 - 220 d.C. (65 anos)\nTítulos: Primeiro-Ministro, Senhor de Wuping, Rei de Wei, Rei Wu\n\nCao Mengde era descendente de Cao Can, o Primeiro-Ministro da Dinastia Han Ocidental. Quando jovem, Cao Mengde era considerado muito inteligente, astuto, não convencional, autoindulgente e leal. O pai de Cao Cao, Cao Song, era originalmente da Família Xiahou, mas foi adotado pelo eunuco Cao Teng, e por isso adotou o sobrenome Cao.\n\nAos vinte anos, Cao Cao, após completar os exames distritais, recebeu recomendação por piedade filial e integridade, o que resultou em sua primeira nomeação oficial. Cao Mengde provou ser digno de maior responsabilidade e foi colocado no comando da segurança no Distrito da Capital de Luo Yang. Ele aderiu a regras e disciplina rigorosas, e nenhuma tropa sob seu comando ousaria quebrar as leis.\n\nEm seguida, Cao Cao assumiu o cargo de Magistrado em Dun Qiu, e depois foi alistado na corte como Conselheiro. No início da rebelião dos Turbantes Amarelos em 184 d.C., Cao Mengde foi elevado ao posto de Comandante de Cavalaria e liderou tropas para o distrito de Ying Chuan.\n\nApós a rebelião ser subjugada, Cao Mengde ocupou o cargo de Comandante do Exército Valente e em 190 d.C., fugiu para Ji Wu após falhar em assassinar Dong Zhuo. A partir daí, Cao Cao tomou as rédeas e formou seu próprio exército de oficiais e soldados talentosos. Usando um Decreto Imperial forjado, Cao Mengde reuniu outros dezessete Senhores para lutar contra Dong Zhuo.\n\nPor isso, Cao Cao foi nomeado Governador de Dong Jun. No ano de 192 d.C., Cao Mengde forçou mais de trezentos mil Turbantes Amarelos a se renderem a ele em Ji Bei. No primeiro ano da Tranquilidade Reconstruída (196 d.C.), Cao Cao derrotou vários senhores menores e foi nomeado General Que Estabelece Virtude Firme e intitulado Senhor de Feiting. Neste ponto, Cao Mengde levou o Imperador Xian para Xu Chang como refém e o usou como Imperador fantoche. Com este novo poder, Cao Cao elevou-se a Grande General e Senhor de Wuping.\n\nNo quinto ano da Tranquilidade Reconstruída (200 d.C.), Cao Cao matou Lü Bu, fez Zhang Xiu se render e lutou contra Liu Bei. Ele conquistou os condados de Ji Zhou e, após lutar contra Yuan Shao em Guan Du, pacificou todo o norte. Em junho do décimo terceiro ano da Tranquilidade Reconstruída (208 d.C.), Cao Mengde se autonomeou Primeiro-Ministro de Han. No mês seguinte, Cao Cao iniciou uma guerra contra Liu Biao em Jing Zhou, em setembro lutou contra Liu Bei, e em dezembro sofreu grandes baixas em Chi Bi.\n\nNo verão do décimo sexto ano da Tranquilidade Reconstruída (211 d.C.), Cao Mengde lutou contra Ma Chao e Han Sui no oeste. Um ano depois, recebeu o título de Duque de Wei do Imperador Xian e assumiu as Nove Dignidades de um senhor patriarcal. Na primavera de 213 d.C., Cao Cao liderou um exército para a Montanha Ru Xu, onde capturou Gongsun Yang. No ano seguinte, Cao Mengde recebeu o Selo Imperial de Jade do Imperador, colocando-o acima de todos os outros senhores.\n\nNo vigésimo ano da Tranquilidade Reconstruída (215 d.C.), após aniquilar Zhang Lu em Han Zhong, Cao Cao foi autorizado pelo Imperador Xian a nomear vassalos no Reino e a nomear os três Grandes Ministros. Em maio do ano seguinte, ele assumiu o título de Rei de Wei. Dois anos depois (217 d.C.), Cao Cao lutou contra Liu Bei em Han Zhong, mas foi forçado a se retirar para Chang An.\n\nEm janeiro do vigésimo quinto ano da Tranquilidade Reconstruída (220 d.C.), Cao Mengde faleceu após um derrame. Ele foi enterrado em Gao Ling no mês seguinte. Postumamente, ele foi intitulado Rei Wu.'
         },
         {
             name: 'Cao Pi',
@@ -14,7 +15,8 @@ export const characters = {
             weapon: 'Twin Sabers',
             birthYear: 187,
             deathYear: 226,
-            image: './src/images/characters/caopi.webp'
+            image: './src/images/characters/caopi.webp',
+            biography: 'Cao Pi foi o primeiro imperador do estado de Cao Wei durante o período dos Três Reinos da China e o filho mais velho de Cao Cao. Ele forçou o último imperador da dinastia Han a abdicar em seu favor e estabeleceu o estado de Wei. Além de ser um governante, Cao Pi também foi um poeta e escritor talentoso.'
         },
         {
             name: 'Cao Ren',
@@ -46,7 +48,8 @@ export const characters = {
             weapon: 'Podao',
             birthYear: 160,
             deathYear: 225,
-            image: './src/images/characters/xiahoudun.webp'
+            image: './src/images/characters/xiahoudun.webp',
+            biography: 'Xiahou Dun foi um general militar que serviu sob o comando de Cao Cao durante o final da dinastia Han Oriental e o início do período dos Três Reinos. Ele era primo de Cao Cao e um de seus generais mais leais. Xiahou Dun é famoso por supostamente ter arrancado e comido seu próprio olho depois de ser atingido por uma flecha durante uma batalha.'
         },
         {
             name: 'Xiahou Yuan',

@@ -14,6 +14,23 @@
         padding: 1rem;
         gap: 1rem;
     }
+    
+    .modal-character-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modal-character-details {
+        width: 100%;
+    }
+    
+    .modal-character-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-character-bio {
+        max-height: 250px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -43,5 +60,30 @@
     .action-btn {
         display: inline-block;
         margin-left: 10px;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-character-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-character-bio {
+        max-height: 200px;
+    }
+    
+    .modal-character-name {
+        font-size: 1.5rem;
     }
 }

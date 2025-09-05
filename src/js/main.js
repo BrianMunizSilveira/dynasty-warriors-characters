@@ -6,12 +6,15 @@ class CharacterManager {
         this.favorites = new Set();
         this.isLoading = false;
         this.searchTerm = '';
+        this.showingFavorites = false;
         this.audio = {
-            hover: new Audio('hover.mp3'),
-            select: new Audio('select.mp3')
+            hover: new Audio('./src/audio/hover.mp3'),
+            select: new Audio('./src/audio/select.mp3')
         };
+        this.modal = document.getElementById('characterModal');
         this.initEventListeners();
         this.initAudioPlayer();
+        this.initModalEvents();
     }
 
     playSound(soundName) {
@@ -241,6 +244,12 @@ class CharacterManager {
             this.toggleFavorite(char, favoriteBtn);
         });
 
+        const infoBtn = card.querySelector('.info-btn');
+        infoBtn.addEventListener('click', () => {
+            this.openCharacterModal(char);
+            this.playSound('select');
+        });
+
         if (this.favorites.has(char.name)) {
             favoriteBtn.classList.add('active');
         }
@@ -287,6 +296,10 @@ class CharacterManager {
             (char.weapon && char.weapon.toLowerCase().includes(this.searchTerm.toLowerCase()))
         );
     }
+    
+    filterFavorites(chars) {
+        return chars.filter(char => this.favorites.has(char.name));
+    }
 
     searchAllKingdoms() {
         const allCharacters = [];
@@ -320,7 +333,23 @@ class CharacterManager {
             
             let charsToShow = [];
             
-            if (this.searchTerm) {
+            if (this.showingFavorites) {
+                charsToShow = this.searchAllKingdoms();
+                charsToShow = this.filterFavorites(charsToShow);
+                
+                if (charsToShow.length === 0) {
+                    const noResults = document.createElement('div');
+                    noResults.className = 'no-results';
+                    noResults.innerHTML = `
+                        <i class="fas fa-heart"></i>
+                        <p>Nenhum personagem favorito encontrado</p>
+                        <small>Adicione personagens aos favoritos clicando no ícone de coração</small>
+                    `;
+                    grid.appendChild(noResults);
+                    this.isLoading = false;
+                    return;
+                }
+            } else if (this.searchTerm) {
                 charsToShow = this.searchAllKingdoms();
                 
                 if (charsToShow.length === 0) {
@@ -351,6 +380,15 @@ class CharacterManager {
     handleSearch(searchValue) {
         this.searchTerm = searchValue.trim();
         
+        // Desativar filtro de favoritos quando fizer uma busca
+        if (this.showingFavorites && this.searchTerm) {
+            this.showingFavorites = false;
+            const favoritesBtn = document.querySelector('[data-tooltip="Favorites"]');
+            if (favoritesBtn) {
+                favoritesBtn.classList.remove('active');
+            }
+        }
+        
         const kingdomButtons = document.querySelectorAll('.kingdom-btn');
         if (this.searchTerm) {
             kingdomButtons.forEach(btn => btn.classList.remove('active'));
@@ -366,13 +404,22 @@ class CharacterManager {
         // Kingdom selection
         document.querySelectorAll('.kingdom-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
+                // Desativar filtro de favoritos quando selecionar um reino
+                if (this.showingFavorites) {
+                    this.showingFavorites = false;
+                    const favoritesBtn = document.querySelector('[data-tooltip="Favorites"]');
+                    if (favoritesBtn) {
+                        favoritesBtn.classList.remove('active');
+                    }
+                }
+                
                 const searchInput = document.querySelector('.search-bar input');
                 searchInput.value = '';
                 this.searchTerm = '';
                 
                 document.querySelectorAll('.kingdom-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                this.currentKingdom = e.target.dataset.kingdom;
+                btn.classList.add('active');
+                this.currentKingdom = btn.dataset.kingdom;
                 this.updateCharacterGrid(this.currentKingdom);
                 this.playSound('select');
             });
@@ -404,7 +451,24 @@ class CharacterManager {
         const favoritesBtn = document.querySelector('[data-tooltip="Favorites"]');
         if (favoritesBtn) {
             favoritesBtn.addEventListener('click', () => {
-                console.log('Favorites clicked - functionality to be implemented');
+                this.showingFavorites = !this.showingFavorites;
+                
+                // Atualizar visual do botão
+                if (this.showingFavorites) {
+                    favoritesBtn.classList.add('active');
+                    document.querySelectorAll('.kingdom-btn').forEach(btn => btn.classList.remove('active'));
+                } else {
+                    favoritesBtn.classList.remove('active');
+                    document.querySelector(`[data-kingdom="${this.currentKingdom}"]`).classList.add('active');
+                }
+                
+                // Limpar a busca
+                const searchInput = document.querySelector('.search-bar input');
+                searchInput.value = '';
+                this.searchTerm = '';
+                
+                this.updateCharacterGrid();
+                this.playSound('select');
             });
         }
     }
@@ -416,6 +480,93 @@ class CharacterManager {
         }
     }
 
+    // =============== MODAL FUNCTIONALITY ===============
+    initModalEvents() {
+        const closeBtn = this.modal.querySelector('.close-modal-btn');
+        closeBtn.addEventListener('click', () => this.closeCharacterModal());
+        
+        // Fechar o modal ao clicar fora do conteúdo
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) {
+                this.closeCharacterModal();
+            }
+        });
+        
+        // Fechar o modal com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                this.closeCharacterModal();
+            }
+        });
+    }
+    
+    openCharacterModal(character) {
+        // Preencher os dados do personagem no modal
+        const modalImage = this.modal.querySelector('.modal-character-image');
+        const modalName = this.modal.querySelector('.modal-character-name');
+        const modalRole = this.modal.querySelector('.modal-character-role');
+        const modalWeapon = this.modal.querySelector('.modal-character-weapon');
+        const modalBirth = this.modal.querySelector('.modal-character-birth');
+        const modalDeath = this.modal.querySelector('.modal-character-death');
+        const modalKingdom = this.modal.querySelector('.modal-character-kingdom');
+        const modalBio = this.modal.querySelector('.modal-character-biography');
+        
+        modalImage.src = character.image;
+        modalImage.alt = character.name;
+        modalName.textContent = character.name;
+        modalRole.textContent = character.role;
+        modalWeapon.textContent = character.weapon || 'Unknown';
+        modalBirth.textContent = character.birthYear || 'Unknown';
+        modalDeath.textContent = character.deathYear || 'Unknown';
+        
+        // Determinar o reino do personagem
+        let kingdom = '';
+        if (this.currentKingdom !== 'search') {
+            kingdom = this.currentKingdom;
+        } else if (character.kingdom) {
+            kingdom = character.kingdom;
+        } else {
+            // Procurar o personagem em todos os reinos
+            for (const [key, chars] of Object.entries(characters)) {
+                if (chars.some(c => c.name === character.name)) {
+                    kingdom = key;
+                    break;
+                }
+            }
+        }
+        
+        // Formatar o nome do reino
+        let kingdomName = '';
+        switch (kingdom) {
+            case 'wei':
+                kingdomName = 'Wei';
+                break;
+            case 'shu':
+                kingdomName = 'Shu';
+                break;
+            case 'wu':
+                kingdomName = 'Wu';
+                break;
+            case 'other':
+                kingdomName = 'Other';
+                break;
+            default:
+                kingdomName = 'Unknown';
+        }
+        
+        modalKingdom.textContent = kingdomName;
+        modalBio.textContent = character.biography || 'Não há informações biográficas disponíveis para este personagem.';
+        
+        // Exibir o modal com animação
+        this.modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+    
+    closeCharacterModal() {
+        this.modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+    
     init() {
         this.loadTheme();
         this.loadFavorites();

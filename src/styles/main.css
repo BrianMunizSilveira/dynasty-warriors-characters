@@ -7,6 +7,10 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /* Container Principal */
 .app-container {
   min-height: 100vh;
@@ -97,6 +101,188 @@ body {
 
 .kingdom-btn.active {
   border-color: currentColor;
+}
+
+/* Modal de Personagem */
+.character-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.character-modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--surface);
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  margin: 2rem;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-modal.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.close-modal-btn {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.close-modal-btn:hover {
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-character-info {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.modal-character-image-container {
+  flex: 0 0 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.modal-character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.modal-character-image:hover {
+  transform: scale(1.05);
+}
+
+.modal-character-details {
+  flex: 1;
+}
+
+.modal-character-name {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+}
+
+.modal-character-role {
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-secondary);
+}
+
+.modal-character-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.stat i {
+  color: var(--accent-color);
+}
+
+.modal-character-bio {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.modal-character-bio::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-character-bio::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.modal-character-bio::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.modal-character-bio::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-character-bio h4 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  padding: 0.5rem 0;
+  z-index: 1;
+}
+
+.modal-character-biography {
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-right: 0.5rem;
 }
 
 /* Grid de Personagens */
@@ -228,6 +414,18 @@ body {
 .action-btn:hover {
   background: rgba(0, 0, 0, 0.7);
   transform: scale(1.1);
+}
+
+.action-btn.active {
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.favorite-btn.active {
+  background: #ff3860;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 56, 96, 0.7);
 }
 
 /* Estilos para quando não há resultados de busca */
